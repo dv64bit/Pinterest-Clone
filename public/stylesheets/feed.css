@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 100%;
+    font-family: "Gilroy";
+}
+
+li:hover {
+    background-color: #111111;
+    color: #e9e9e9;
+    padding: 15px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+input {
+    border: none;
+    outline: none;
+    background: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+img {
+    border-radius: 40px;
+}
+
+img:hover {
+    filter: brightness(0.7);
+    cursor: pointer;
+}
+
+/* .grided {
+    text-align: center;
+    max-width: 95vw;
+    margin: 2.5vw auto;
+} */
+.grided {
+    padding-top: 13vh;
+    width: 80%;
+    margin: auto;
+    columns: 6;
+    column-gap: 20px;
+}
+
+.grided-item {
+    padding: 5px;
+    box-sizing: border-box;
+    display: inline;
+}
+
+@media (min-width: 500px) {
+    .grided-item {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .grided-item {
+        width: 33.333%;
+    }
+}
+
+@media (min-width: 1700px) {
+    .grided-item {
+        width: 25%;
+    }
+}
+
+@media (min-width: 2100px) {
+    .grided-item {
+        width: 20%;
+    }
+}
