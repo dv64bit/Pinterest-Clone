@@ -10,7 +10,7 @@ passport.use(new localStrategy(userModel.authenticate()));
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { nav: false });
+  res.render("index", { nav: false, error: req.flash("error") });
 });
 
 router.get("/register", function (req, res) {
@@ -67,6 +67,7 @@ router.post(
   passport.authenticate("local", {
     failureRedirect: "/",
     successRedirect: "/profile",
+    failureFlash: true,
   }),
   function (req, res, next) {}
 );
@@ -78,8 +79,8 @@ router.post(
   async function (req, res, next) {
     const loggedInUser = await userModel.findOne({
       username: req.session.passport.user,
-    }); 
-    loggedInUser.profileImage = req.file.filename; 
+    });
+    loggedInUser.profileImage = req.file.filename;
     res.redirect("/profile");
   }
 );
@@ -94,9 +95,9 @@ router.post(
     });
     const newPost = await postModel.create({
       loggedUserId: loggedInUser._id,
-      postTitle: req.body.title, 
+      postTitle: req.body.title,
       postCaption: req.body.caption,
-      newPostedImage: req.file.filename, 
+      newPostedImage: req.file.filename,
     });
 
     loggedInUser.postId.push(newPost._id);

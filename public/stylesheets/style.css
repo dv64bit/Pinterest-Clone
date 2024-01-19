@@ -19,3 +19,10 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.error {
+  font-weight: 500;
+  color: #e60023;
+  text-transform: capitalize;
+  margin: 7px 0;
+}
